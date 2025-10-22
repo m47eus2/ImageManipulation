@@ -1,0 +1,15 @@
+Operacje morfologiczne:
+
+Erozja -> biały obszar się zmniejsza (biały tylko w tedy gdy cały kernel znajduje się w białym obszarze)
+
+Dylatacja -> biały obszar się powiększa (biały wszędzie tam gdzie filtr dotyka białego)
+
+Otwarcie -> Erozja i Dylatacja (usuwa małe białe obszary)
+
+Zamknięcie -> Dylatacja, Erozja (usuwa małe czarne punkty)
+
+Gradient -> Różnica pomiędzy dylatacją i erozją (białe obszary zamieniają się w białą obwódkę)
+
+TopHat -> różnica pomiędzy oryginałem a otwarciem (wewnątrz białych obszarów pojawiają się czarne kwadraty)
+
+Blackhat -> różnica pomiędzy zamknięciem a oryginałem (robi coś w rodzaju negatywu, mniej białego)
