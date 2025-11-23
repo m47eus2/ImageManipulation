@@ -23,8 +23,12 @@ while True:
 
     if len(xpoints) >= 2:
         roi = img[ypoints[0]:ypoints[1],xpoints[0]:xpoints[1]]
-        roiFiltered = cv.GaussianBlur(roi, (21,21), 0)
-        img[ypoints[0]:ypoints[1],xpoints[0]:xpoints[1]] = roiFiltered
+        
+        roiGChannel = roi[:,:,1]
+        ret, thresh = cv.threshold(roiGChannel, 128, 255, cv.THRESH_BINARY)
+        roi[:,:,1] = thresh
+        
+        img[ypoints[0]:ypoints[1],xpoints[0]:xpoints[1]] = roi
         cv.imshow('window', img)
         cv.waitKey(0)
         break
